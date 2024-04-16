@@ -1,20 +1,17 @@
 import './App.css';
-import { User } from "./User";
+import { useState } from 'react'
 
 function App() {
-  const users = [ 
-    {name: "Pedro", age: 21},
-    {name: "Arthur", age: 20},
-    {name: "Juninho", age: 19},
-  ];
+  const [age, setAge] = useState(0);
+
+  const increaseAge = () => {
+     setAge(age + 1);
+  };
 
   return ( 
   <div className="App">
-    {users.map((user,key) => {
-      return (
-        <User name={user.name} age={user.age} />
-      );
-    })}
+    {age} 
+    <button onClick={increaseAge}> Increase Age </button>
   </div>
   );
 }
